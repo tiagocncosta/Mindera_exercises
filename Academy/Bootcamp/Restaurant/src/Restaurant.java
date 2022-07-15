@@ -11,7 +11,6 @@ public class Restaurant {
     public void freeTable(Restaurant r) {
         for (int i = 0; i < r.tables.length; i++)
             r.tables[i] = new Table();
-
     }
 
     public void setFullCapacity(boolean fullCapacity) {
@@ -23,7 +22,7 @@ public class Restaurant {
         return fullCapacity;
     }
 
-    public void findTable(Restaurant restaurant) {
+    public Table findTable(Restaurant restaurant) {
         if (restaurant.fullCapacity) {
             System.out.println("Sorry, we are full!");
         }
@@ -31,11 +30,14 @@ public class Restaurant {
            if (restaurant.tables[i].isFree()){
                     System.out.println("There is a free table for you");
                     restaurant.tables[i].occupy();
-           break;}
 
+           }
 
+            return restaurant.tables[i];
                 }
-            }
+
+        return null;
+    }
         }
 
 

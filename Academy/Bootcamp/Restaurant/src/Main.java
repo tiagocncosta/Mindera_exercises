@@ -5,10 +5,14 @@ public class Main {
         Restaurant r = new Restaurant(5);
         r.freeTable(r);
 
-        Mary.askForTable();
-        r.findTable(r);
+        Mary.setRestaurant(r);
 
-        r.tables[1].isFree();
+        Mary.askForTable();
+
+        Mary.order("lobster");
+
+
+
 
 
 
