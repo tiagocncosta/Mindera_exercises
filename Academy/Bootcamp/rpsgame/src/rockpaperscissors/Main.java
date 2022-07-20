@@ -28,12 +28,13 @@ public class Main {
 
                 System.out.println("What is your play " + player1.getName() + " ?");
                 while (true) {
-                    System.out.println("(rock, paper or scissors)");
-                    String play1 = sc.nextLine().toLowerCase();
+                    player1.getChoices();
+                    String play1 = sc.nextLine().toUpperCase();
                     player1.setPlayerMove(play1);
-                    if (player1.getPlayerMove().equals("rock") ||
-                            player1.getPlayerMove().equals("paper") ||
-                            player1.getPlayerMove().equals("scissors")) {
+                    System.out.println(play1);
+                    if (player1.getPlayerMove().equals(Choices.ROCK.toString()) ||
+                            player1.getPlayerMove().equals(Choices.PAPER.toString()) ||
+                            player1.getPlayerMove().equals(Choices.SCISSORS.toString())) {
                         break;
                     }
                     System.out.println("Invalid play. Try again.");
@@ -42,12 +43,12 @@ public class Main {
                 System.out.println("What is your play " + player2.getName() + " ?");
 
                 while (true) {
-                    System.out.println("(rock, paper or scissors)");
-                    String play2 = sc.nextLine().toLowerCase();
+                    player2.getChoices();
+                    String play2 = sc.nextLine().toUpperCase();
                     player2.setPlayerMove(play2);
-                    if (player2.getPlayerMove().equals("rock") ||
-                            player2.getPlayerMove().equals("paper") ||
-                            player2.getPlayerMove().equals("scissors")) {
+                    if (player2.getPlayerMove().equals(Choices.ROCK.toString()) ||
+                            player2.getPlayerMove().equals(Choices.PAPER.toString()) ||
+                            player2.getPlayerMove().equals(Choices.SCISSORS.toString())) {
                         break;
                     }
                     System.out.println("Invalid play. Try again.");
@@ -65,12 +66,12 @@ public class Main {
 
                 System.out.println("What is your play " + player.getName() + " ?");
                 while (true) {
-                    System.out.println("(rock, paper or scissors)");
-                    String play1 = sc.nextLine().toLowerCase();
+                    player.getChoices();
+                    String play1 = sc.nextLine().toUpperCase();
                     player.setPlayerMove(play1);
-                    if (player.getPlayerMove().equals("rock") ||
-                            player.getPlayerMove().equals("paper") ||
-                            player.getPlayerMove().equals("scissors")) {
+                    if (player.getPlayerMove().equals(Choices.ROCK.toString()) ||
+                            player.getPlayerMove().equals(Choices.PAPER.toString()) ||
+                            player.getPlayerMove().equals(Choices.SCISSORS.toString())) {
                         break;
                     }
                     System.out.println("Invalid play. Try again.");
@@ -85,31 +86,31 @@ public class Main {
 
     public static void twoPlayersGame(Players player1, Players player2){
 
-        if ( player1.getPlayerMove().equals("rock") && player2.getPlayerMove().equals("scissors")){
+        if ( player1.getPlayerMove().equals(Choices.ROCK.toString()) && player2.getPlayerMove().equals(Choices.SCISSORS.toString())){
             System.out.println(player1.getName() + " won!");
             return;
         }
 
-        if (player1.getPlayerMove().equals("scissors") && player2.getPlayerMove().equals("paper")){
+        if (player1.getPlayerMove().equals(Choices.SCISSORS.toString()) && player2.getPlayerMove().equals(Choices.PAPER.toString())){
             System.out.println(player1.getName() + " won!");
             return;
         };
 
-        if (player1.getPlayerMove().equals("paper") && player2.getPlayerMove().equals("rock")){
+        if (player1.getPlayerMove().equals(Choices.PAPER.toString()) && player2.getPlayerMove().equals(Choices.ROCK.toString())){
             System.out.println(player1.getName() + " won!");
             return;
         }
 
-        if (player2.getPlayerMove().equals("rock") && player1.getPlayerMove().equals("scissors")){
+        if (player2.getPlayerMove().equals(Choices.ROCK.toString()) && player1.getPlayerMove().equals(Choices.SCISSORS.toString())){
             System.out.println(player2.getName() + " won!");
             return;
         }
-        if (player2.getPlayerMove().equals("scissors") && player1.getPlayerMove().equals("paper")) {
+        if (player2.getPlayerMove().equals(Choices.SCISSORS.toString()) && player1.getPlayerMove().equals(Choices.PAPER.toString())) {
             System.out.println(player2.getName() + " won!");
             return;
         }
 
-        if (player2.getPlayerMove().equals("paper") && player1.getPlayerMove().equals("rock")){
+        if (player2.getPlayerMove().equals(Choices.PAPER.toString()) && player1.getPlayerMove().equals(Choices.ROCK.toString())){
             System.out.println(player2.getName() + " won!");
             return;
         } else {
@@ -124,31 +125,31 @@ public class Main {
         String computerMove = rps[(int) Math.floor(Math.random() * rps.length)];
         System.out.println("The computer chose " + computerMove);
 
-        if ( player1.getPlayerMove().equals("rock") && computerMove.equals("scissors")){
+        if ( player1.getPlayerMove().equals(Choices.ROCK.toString()) && computerMove.equals(Choices.SCISSORS.toString())){
             System.out.println(player1.getName() + " won!");
             return;
         }
 
-        if (player1.getPlayerMove().equals("scissors") && computerMove.equals("paper")){
+        if (player1.getPlayerMove().equals(Choices.SCISSORS.toString()) && computerMove.equals(Choices.PAPER.toString())){
             System.out.println(player1.getName() + " won!");
             return;
         };
 
-        if (player1.getPlayerMove().equals("paper") && computerMove.equals("rock")){
+        if (player1.getPlayerMove().equals(Choices.PAPER.toString()) && computerMove.equals(Choices.ROCK.toString())){
             System.out.println(player1.getName() + " won!");
             return;
         }
 
-        if (computerMove.equals("rock") && player1.getPlayerMove().equals("scissors")){
+        if (computerMove.equals(Choices.ROCK.toString()) && player1.getPlayerMove().equals(Choices.SCISSORS.toString())){
             System.out.println("Computer won!");
             return;
         }
-        if (computerMove.equals("scissors") && player1.getPlayerMove().equals("paper")) {
+        if (computerMove.equals(Choices.SCISSORS.toString()) && player1.getPlayerMove().equals(Choices.PAPER.toString())) {
             System.out.println("Computer won!");
             return;
         }
 
-        if (computerMove.equals("paper") && player1.getPlayerMove().equals("rock")){
+        if (computerMove.equals(Choices.PAPER.toString()) && player1.getPlayerMove().equals(Choices.ROCK.toString())){
             System.out.println("Computer won!");
             return;
         } else {

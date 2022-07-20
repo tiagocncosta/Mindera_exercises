@@ -24,4 +24,12 @@ public class Players {
         return playerMove;
     }
 
+    public void getChoices() {
+        Choices [] choices = Choices.values();
+
+        for (Choices choice : choices){
+            System.out.println(choice);
+        }
+    }
+
 }
