@@ -5,17 +5,23 @@ import academia.vehicles.*;
 
 public class Shop {
 
-    private Vehicle[] vehicles;
+    public Vehicle[] vehicles;
 
-    public Shop() {
-        this.vehicles = new Vehicle[]{new GasCar(VehicleType.GASCAR, (float) 0.05),
-                new HybridCar(VehicleType.HYBRIDCAR, (float) 0.05),
-                new Motorcycle(VehicleType.MOTORCYCLE, (float) 0.05)
-        };
+    public Shop(int numberOfVehicles) {
+        this.vehicles = new Vehicle[numberOfVehicles];
+        }
+
+
+
+    public void addVehicle(Vehicle vehicle){
+        for (int i = 0 ; i < vehicles.length; i ++){
+            if (vehicles[i] == null) {
+                vehicles[i] = vehicle;
+                return;
+            }
+        }
+        System.out.println("no more space in the store");
     }
-
-
-
 
 
     public void unRent(Vehicle vehicle)  {
