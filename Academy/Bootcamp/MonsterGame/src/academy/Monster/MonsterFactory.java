@@ -21,10 +21,10 @@ public final class MonsterFactory {
                     monsters[i] = new Vampire(20, MonsterType.VAMPIRE);
                     break;
                 case MUMMY:
-                    monsters[i] = new Mummy(20, MonsterType.MUMMY);
+                    monsters[i] = new Mummy(40, MonsterType.MUMMY);
                     break;
                 default:
-                    monsters[i] = new Werewolf(20, MonsterType.WEREWOLF);
+                    monsters[i] = new Werewolf(30, MonsterType.WEREWOLF);
                     break;
             }
         }

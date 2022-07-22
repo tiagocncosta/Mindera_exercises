@@ -14,7 +14,7 @@ public class Mummy extends Monster {
     public int attack() {
         if (consecutivesAttacksCounter == 2) {
             failUnrolls();
-            System.out.printf("I failed and unroll and lost 10 of health I have now %d. %n", getHealth());
+            System.out.printf("%s: I failed and unroll and lost 10 of health I have now %d. %n", getType(), getHealth());
             consecutivesAttacksCounter = 0;
             return 0;
         }

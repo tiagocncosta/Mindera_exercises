@@ -1,7 +1,5 @@
 package academy.Monster;
 
-import academy.Player;
-
 public abstract class Monster {
 
 
@@ -34,7 +32,7 @@ public abstract class Monster {
     }
 
     public void loseHealth(int attackDamage) {
-        Player p = new Player("");
+
         if (attackDamage >= health) {
             health = 0;
             die();
@@ -62,7 +60,7 @@ public abstract class Monster {
 
     protected void die() {
         isAlive = false;
-        System.out.println("I'm dead.");
+        System.out.println("I can't resist no more... you have to go without me.. *dying* ");
     }
 
     protected void increaseHealth(int amount) {
@@ -70,6 +68,5 @@ public abstract class Monster {
             health += amount;
         }
         health = Math.min(health, 100);
-
     }
 }

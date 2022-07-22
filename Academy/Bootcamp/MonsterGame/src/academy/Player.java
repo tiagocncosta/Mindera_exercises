@@ -3,6 +3,8 @@ package academy;
 import academy.Monster.Monster;
 import academy.Monster.MonsterFactory;
 
+import static academy.Util.randomNumber;
+
 public class Player {
     private String name;
     private Monster[] monsters;
@@ -36,19 +38,19 @@ public class Player {
         if (!defender.isAlive()) {
             numberOfMonstersAlive--;
         }
-        System.out.println("received" + defender.getType().toString() + " " + "health" + defender.getHealth());
+        System.out.printf("%s was attacked, he now has %d health points. %n", defender.getType(), defender.getHealth());
     }
 
     public Monster chooseMonster() {
-        Monster chosenMonsterRandom = monsters[Util.randomNumber(0, monsters.length - 1)];
+        Monster randomMonster = monsters[randomNumber(0, monsters.length - 1)];
         if (numberOfMonstersAlive == 0) {
             return null;
         }
 
-        if (!chosenMonsterRandom.isAlive() && numberOfMonstersAlive > 0) {
+        if (!randomMonster.isAlive() && numberOfMonstersAlive > 0) {
             chooseMonster();
         }
-        return chosenMonsterRandom;
+        return randomMonster;
     }
 
     public String getName() {
