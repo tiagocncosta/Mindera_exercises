@@ -1,12 +1,14 @@
 package academy.supernatural.strikeable.monsters;
 
+import static academy.Messages.MUMMY_UNROLL;
+
 public class Mummy extends Monster{
     private int consecutiveAttacks;
     private final int MAX_CONSECUTIVE_HITS =3;
     private final int UNROLL_DAMAGE = 10;
 
     public Mummy(int damage, MonsterType type) {
-        super(damage, type);
+        super(20, MonsterType.MUMMY);
 
         this.consecutiveAttacks= 0;
     }
@@ -22,7 +24,6 @@ public class Mummy extends Monster{
         consecutiveAttacks++;
         if(consecutiveAttacks==MAX_CONSECUTIVE_HITS){
             consecutiveAttacks=0;
-            System.out.println("Oh no I unrolled and lost 10 health points!!!");
             return unroll();
 
         }
@@ -31,6 +32,7 @@ public class Mummy extends Monster{
 
     private int unroll(){
         setHealthPoints(getHealthPoints()-UNROLL_DAMAGE);
+        System.out.printf(MUMMY_UNROLL, getType(), UNROLL_DAMAGE, getHealthPoints());
         return 0;
 
     }

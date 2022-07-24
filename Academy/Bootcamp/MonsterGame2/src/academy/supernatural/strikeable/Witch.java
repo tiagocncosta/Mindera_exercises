@@ -2,6 +2,8 @@ package academy.supernatural.strikeable;
 
 import academy.supernatural.Supernatural;
 
+import static academy.Messages.SUPERNATURAL_DEFENCE;
+
 public class Witch extends Supernatural implements Strikeable {
         public final String type = "Witch";
 
@@ -19,12 +21,11 @@ public class Witch extends Supernatural implements Strikeable {
             health = 0;
             setHealthPoints(health);
             die();
-            System.out.println("I'm dead");
             return;
         }
         health -= halfDamage ;
         setHealthPoints(health);
-        System.out.printf(" %s lost %d health points and now has %d. %n",type, halfDamage, health);
+        System.out.printf(SUPERNATURAL_DEFENCE ,type, halfDamage, health);
 
     }
 }

@@ -4,9 +4,11 @@ import academy.supernatural.strikeable.monsters.Monster;
 import academy.supernatural.strikeable.monsters.MonsterFactory;
 import academy.supernatural.strikeable.monsters.MonsterType;
 
+import static academy.Messages.*;
+
 public class Player {
     public Monster[] monsters;
-    private  int deadMonsters;
+    private int deadMonsters;
     private String name;
     private boolean lost;
 
@@ -36,7 +38,7 @@ public class Player {
         }
 
 
-       public void suffer(int damage) {
+       public void defence(int damage) {
             Monster monster = choseMonster();
             if(monster == null) {
                 return;
@@ -44,17 +46,14 @@ public class Player {
 
             if(!monster.isAlive()){
                 deadMonsters ++;
+                System.out.printf(DEAD_MONSTERS, getName(), deadMonsters);
             }
 
             if (checkDeadMonsters() == monsters.length) {
+                System.out.printf(ALL_MONSTERS_DIED, getName());
                 lost = true;
             }
         }
-
-
-
-
-
 
     private Monster choseMonster() {
         if (!canChooseMonster()) {

@@ -3,8 +3,10 @@ package academy.supernatural.strikeable.monsters;
 import academy.supernatural.Supernatural;
 import academy.supernatural.strikeable.Strikeable;
 
+import static academy.Messages.SUPERNATURAL_DEFENCE;
+
 public abstract class Monster extends Supernatural implements Strikeable{
-        public MonsterType type;
+        private MonsterType type;
 
     public Monster(int damage, MonsterType type) {
         super(damage);
@@ -20,13 +22,15 @@ public abstract class Monster extends Supernatural implements Strikeable{
             health = 0;
             setHealthPoints(health);
             die();
-            System.out.println("I'm dead");
             return;
         }
         health -= damage;
         setHealthPoints(health);
-        System.out.printf("%s lost %d health points and now has %d. %n", type, damage, health);
+        System.out.printf(SUPERNATURAL_DEFENCE, type, damage, health);
+
     }
 
-
+    public MonsterType getType() {
+        return type;
+    }
 }

@@ -1,5 +1,7 @@
 package academy.supernatural;
 
+import static academy.Messages.MONSTER_DYING;
+
 public abstract class Supernatural {
 
 
@@ -10,11 +12,10 @@ public abstract class Supernatural {
     public Supernatural(int damage) {
         this.damage = damage;
         this.healthPoints= 100;
-        this.isAlive= true;
+        this.isAlive = true;
     }
 
     public int attack() {
-
         return damage;
     }
 
@@ -25,16 +26,15 @@ public abstract class Supernatural {
         this.healthPoints= healthPoints;
     }
 
-
-    public int getDamage() {
-        return damage;
-    }
-
     public boolean isAlive() {
         return isAlive;
     }
     public void die(){
+        if (isAlive == false){
+            return;
+        }
         if(healthPoints==0){
+            System.out.println(MONSTER_DYING);
             isAlive=false;
         }
     }
